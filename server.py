@@ -52,11 +52,11 @@ engine = create_engine(DATABASEURI)
 
 # Here we create a test table and insert some values in it
 engine.execute("""DROP TABLE IF EXISTS test;""")
-engine.execute("""CREATE TABLE IF NOT EXISTS test (
-  id serial,
-  name text
-);""")
-engine.execute("""INSERT INTO test(name) VALUES ('grace hopper'), ('alan turing'), ('ada lovelace');""")
+# engine.execute("""CREATE TABLE IF NOT EXISTS test (
+#   id serial,
+#   name text
+# );""")
+# engine.execute("""INSERT INTO test(name) VALUES ('grace hopper'), ('alan turing'), ('ada lovelace');""")
 
 
 
@@ -121,11 +121,18 @@ def index():
   #
   # example of a database query
   #
-  cursor = g.conn.execute("SELECT name FROM test")
-  names = []
-  for result in cursor:
-    names.append(result['name'])  # can also be accessed using result[0]
-  cursor.close()
+  # cursor = g.conn.execute("SELECT name FROM test")
+  # names = []
+  # for result in cursor:
+  #   names.append(result['name'])  # can also be accessed using result[0]
+  # cursor.close()
+
+  # extracting movies in database
+  movie_cursor = g.conn.execute("SELECT * FROM Movies")
+  movies = []
+  for result in movie_cursor:
+    movies.append([result['name'], result['year'], result['genre']])
+  movie_cursor.close()
 
   #
   # Flask uses Jinja templates, which is an extension to HTML where you can
@@ -153,7 +160,7 @@ def index():
   #     <div>{{n}}</div>
   #     {% endfor %}
   #
-  context = dict(data = names)
+  context = dict(movies = movies)
 
 
   #
