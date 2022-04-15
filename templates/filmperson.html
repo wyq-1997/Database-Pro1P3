@@ -1,3 +1,23 @@
-hello, I am another file!
+<html>
+  <link rel="stylesheet" href="styles.css">
 
-<p><a href="/" style="text-align: left; font-size: 10pt;" >Go to the movies page</a></p>
+<body>
+  <p><a href="/" style="text-align: left; font-size: 10pt;" >Go to the movies page</a></p>
+
+  <div style="text-align: center">
+    <h1>Film persons in the database</h1>
+
+    <div>
+      <p>[person_id, name, birth_date, death_date, birth_place, description]</p>
+      {% for n in filmperson %}
+      <div style="text-align: left">{{n}}</div>
+      {% endfor %}
+    </div>
+
+  </div>
+  
+
+</body>
+
+
+</html>

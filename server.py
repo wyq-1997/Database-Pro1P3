@@ -134,6 +134,13 @@ def index():
     movies.append([result['mid'], result['name'], result['year'], result['plot'], result['genre'], result['num_likes'], result['num_dislikes'], result['rewards']])
   movie_cursor.close()
 
+ # extracting filmperson in database
+  filmperson_cursor = g.conn.execute("SELECT * FROM Film_person")
+  filmperson = []
+  for result in filmperson_cursor:
+    filmperson.append([result['pid'], result['name'], result['birth_date'], result['death_date'], result['birth_place'], result['description']])
+  filmperson_cursor.close()
+
   #
   # Flask uses Jinja templates, which is an extension to HTML where you can
   # pass data to a template and dynamically generate HTML based on the data
