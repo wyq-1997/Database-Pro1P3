@@ -131,7 +131,7 @@ def index():
   movie_cursor = g.conn.execute("SELECT * FROM Movies")
   movies = []
   for result in movie_cursor:
-    movies.append([result['name'], result['year'], result['genre']])
+    movies.append([result['mid'], result['name'], result['year'], result['plot'], result['genre'], result['num_likes'], result['num_dislikes'], result['rewards']])
   movie_cursor.close()
 
   #
@@ -186,8 +186,9 @@ def another():
 @app.route('/add_movie', methods=['POST'])
 def add_movie():
   name = request.form['name']
+  year = request.form['year']
   print (name)
-  cmd = 'INSERT INTO Movies VALUES (11, :name1, 23, :name1, :name1, 0, 0, :name1)'
+  cmd = 'INSERT INTO Movies VALUES (11, :name1, year, :name1, :name1, 0, 0, :name1)'
   g.conn.execute(text(cmd), name1 = name)
   return redirect('/')
 

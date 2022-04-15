@@ -7,14 +7,16 @@
     <h1>Movies in the database</h1>
 
     <div>
-      <p>movie_id, name, year, plot, genre, num_likes, num_dislikes, rewards</p>
+      <p>[movie_id, name, year, plot, genre, num_likes, num_dislikes, rewards]</p>
       {% for n in movies %}
       <div>{{n}}</div>
       {% endfor %}
     </div>
 
     <form method="POST" action="/add_movie">
-    <p>Name of the movie: <input type="text" name="name"> <input type="submit" value="Add"></p>
+    <p>Name of the movie: <input type="text" name="name"> </p>
+    <p>Year of the movie: <input type="integer" name="year"> </p>
+    <p><input type="submit" value="Add"></p>
     </form>
   </div>
   
