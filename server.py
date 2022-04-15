@@ -136,9 +136,9 @@ def index():
 
  # extracting filmperson in database
   filmperson_cursor = g.conn.execute("SELECT * FROM Film_person")
-  filmperson = []
+  filmpersons = []
   for result in filmperson_cursor:
-    filmperson.append([result['pid'], result['name'], result['birth_date'], result['death_date'], result['birth_place'], result['description']])
+    filmpersons.append([result['pid'], result['name'], result['birth_date'], result['death_date'], result['birth_place'], result['description']])
   filmperson_cursor.close()
 
   #
@@ -167,7 +167,7 @@ def index():
   #     <div>{{n}}</div>
   #     {% endfor %}
   #
-  context = dict(movies = movies, filmperson = filmperson)
+  context = dict(movies = movies, filmperson = filmpersons)
 
 
   #
