@@ -186,10 +186,9 @@ def another():
 @app.route('/add_movie', methods=['POST'])
 def add_movie():
   name = request.form['name']
-  time = request.form['time']
   print (name)
-  cmd = 'INSERT INTO Movies(name) VALUES (:name)'
-  g.conn.execute(text(cmd), name = name)
+  cmd = 'INSERT INTO Movies(name) VALUES (:name1)'
+  g.conn.execute(text(cmd), name1 = name)
   return redirect('/')
 
 
