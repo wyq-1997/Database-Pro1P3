@@ -184,11 +184,14 @@ def another():
 
 # Example of adding new data to the database
 @app.route('/add', methods=['POST'])
-def add():
+def add_movie():
   name = request.form['name']
+  time = request.form['time']
   print (name)
-  cmd = 'INSERT INTO test(name) VALUES (:name1)';
-  g.conn.execute(text(cmd), name1 = name);
+  cmd = 'INSERT INTO Movies(name) VALUES (:name)'
+  cmd1 = 'INSERT INTO Movies(name) VALUES (:time)'
+  g.conn.execute(text(cmd), name = name)
+  g.conn.execute(text(cmd1), time = time)
   return redirect('/')
 
 

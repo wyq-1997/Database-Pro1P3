@@ -4,7 +4,7 @@
 <body>
 
   <div style="text-align: center">
-    <h1>Movies in my database</h1>
+    <h1>Movies in the database</h1>
 
     <div>
       {% for n in movies %}
@@ -12,8 +12,9 @@
       {% endfor %}
     </div>
 
-    <form method="POST" action="/add">
+    <form method="POST" action="/add_movie">
     <p>Name of the movie: <input type="text" name="name"> <input type="submit" value="Add"></p>
+    <p>Time of the movie: <input type="text" name="time"> <input type="submit" value="Add"></p>
     </form>
   </div>
   
