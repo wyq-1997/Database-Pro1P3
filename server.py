@@ -189,9 +189,7 @@ def add_movie():
   time = request.form['time']
   print (name)
   cmd = 'INSERT INTO Movies(name) VALUES (:name)'
-  cmd1 = 'INSERT INTO Movies(name) VALUES (:time)'
   g.conn.execute(text(cmd), name = name)
-  g.conn.execute(text(cmd1), time = time)
   return redirect('/')
 
 
