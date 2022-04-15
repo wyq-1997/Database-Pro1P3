@@ -167,7 +167,7 @@ def index():
   #     <div>{{n}}</div>
   #     {% endfor %}
   #
-  context = dict(movies = movies)
+  context = dict(movies = movies, filmperson = filmperson)
 
 
   #
