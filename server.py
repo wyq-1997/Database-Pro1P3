@@ -187,7 +187,7 @@ def another():
 def add_movie():
   name = request.form['name']
   print (name)
-  cmd = 'INSERT INTO Movies VALUES (:name1, :name1, :name1, :name1, :name1, :name1, :name1, :name1)'
+  cmd = 'INSERT INTO Movies VALUES (11, :name1, 23, :name1, :name1, 0, 0, :name1)'
   g.conn.execute(text(cmd), name1 = name)
   return redirect('/')
 
