@@ -211,9 +211,9 @@ def rate_movie():
   mid = request.form['mid']
   rate = request.form['rate']
   print (mid)
-  if rate == 1:
+  if int(rate) == 1:
     cmd = 'UPDATE Movies SET num_likes=num_likes+1 WHERE mid='+mid
-  elif rate == -1:
+  elif int(rate) == -1:
     cmd = 'UPDATE Movies SET num_dislikes=num_dislikes+1 WHERE mid='+mid
   g.conn.execute(text(cmd))
   return redirect('/')
