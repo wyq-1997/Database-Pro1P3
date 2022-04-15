@@ -185,11 +185,18 @@ def another():
 # Example of adding new data to the database
 @app.route('/add_movie', methods=['POST'])
 def add_movie():
+  mid = request.form['mid']
   name = request.form['name']
   year = request.form['year']
+  plot = request.form['plot']
+  genre = request.form['genre']
+  num_likes = request.form['num_likes']
+  num_dislikes = request.form['num_dislikes']
+  rewards = request.form['rewards']
+
   print (name)
-  cmd = 'INSERT INTO Movies VALUES (11, :name1, :year1, :name1, :name1, 0, 0, :name1)'
-  g.conn.execute(text(cmd), name1 = name, year1 = year)
+  cmd = 'INSERT INTO Movies VALUES (:mid1, :name1, :year1, :plot1, :genre1, :num_likes1, :num_dislikes1, :rewards1)'
+  g.conn.execute(text(cmd), mid1 = mid, name1 = name, year1 = year, plot1 = plot, genre1 = genre, num_likes1 = num_likes, num_dislikes1 = num_dislikes, rewards1 = rewards)
   return redirect('/')
 
 
