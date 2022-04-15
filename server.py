@@ -188,8 +188,8 @@ def add_movie():
   name = request.form['name']
   year = request.form['year']
   print (name)
-  cmd = 'INSERT INTO Movies VALUES (11, :name1, year, :name1, :name1, 0, 0, :name1)'
-  g.conn.execute(text(cmd), name1 = name)
+  cmd = 'INSERT INTO Movies VALUES (11, :name1, :year1, :name1, :name1, 0, 0, :name1)'
+  g.conn.execute(text(cmd), name1 = name, year1 = year)
   return redirect('/')
 
 
