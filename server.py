@@ -51,7 +51,7 @@ engine = create_engine(DATABASEURI)
 
 
 # Here we create a test table and insert some values in it
-engine.execute("""DROP TABLE IF EXISTS test;""")
+# engine.execute("""DROP TABLE IF EXISTS test;""")
 # engine.execute("""CREATE TABLE IF NOT EXISTS test (
 #   id serial,
 #   name text
@@ -183,7 +183,7 @@ def another():
 
 
 # Example of adding new data to the database
-@app.route('/add', methods=['POST'])
+@app.route('/add_movie', methods=['POST'])
 def add_movie():
   name = request.form['name']
   time = request.form['time']
