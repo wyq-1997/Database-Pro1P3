@@ -177,9 +177,9 @@ def index():
 # notice that the functio name is another() rather than index()
 # the functions for each app.route needs to have different names
 #
-@app.route('/another')
-def another():
-  return render_template("anotherfile.html")
+@app.route('/filmperson')
+def filmperson():
+  return render_template("filmperson.html")
 
 
 # Example of adding new data to the database
